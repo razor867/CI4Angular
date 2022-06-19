@@ -1,0 +1,36 @@
+<div class="row my-3 mx-3">
+  <div class="col-md-8">
+    <h3>Surat Masuk</h3>
+    <div class="table-responsive">
+      <table mat-table [dataSource]="listSuratMasuk" class="table table-striped">
+        <ng-container matColumnDef="title">
+         <th mat-header-cell *matHeaderCellDef>Title</th>
+         <td mat-cell *matCellDef="let element">
+           {{element.title}}
+         </td>
+        </ng-container>
+        <ng-container matColumnDef="regarding">
+         <th mat-header-cell *matHeaderCellDef>Regarding</th>
+         <td mat-cell *matCellDef="let element">
+           {{element.regarding}}
+         </td>
+        </ng-container>
+        <ng-container matColumnDef="to_person">
+         <th mat-header-cell *matHeaderCellDef>To</th>
+         <td mat-cell *matCellDef="let element">
+           {{element.to_person}}
+         </td>
+        </ng-container>
+        <ng-container matColumnDef="from_person">
+         <th mat-header-cell *matHeaderCellDef>From</th>
+         <td mat-cell *matCellDef="let element">
+           {{element.from_person}}
+         </td>
+        </ng-container>
+ 
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+     </table>
+    </div>
+  </div>
+</div>
