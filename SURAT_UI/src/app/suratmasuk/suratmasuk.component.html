@@ -1,6 +1,7 @@
-<div class="row my-3 mx-3">
+<div *ngIf="pageInit" class="row my-3 mx-3">
   <div class="col-md-8">
     <h3>Surat Masuk</h3>
+    <button class="btn btn-primary" (click)="add('I')" data-bs-toggle="modal" data-bs-target="#formSuratMasuk">Add</button>
     <div class="table-responsive">
       <table mat-table [dataSource]="listSuratMasuk" class="table table-striped">
         <ng-container matColumnDef="title">
@@ -32,5 +33,54 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
      </table>
     </div>
+  </div>
+</div>
+
+<div *ngIf="pageForm" class="row my-3 mx-3">
+  <div class="col-md-6">
+    <h3>{{titleForm}}</h3>
+    <button class="btn btn-secondary" (click)="backForm()">Back</button>
+    <form class="mt-3" [formGroup]="formSuratMasuk">
+      <div class="mb-2">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="title" formControlName="title" [ngClass]="{'is-invalid': formSuratMasuk.get('title')?.errors && formSuratMasuk.get('title')?.touched}">
+        <div class="invalid-feedback">
+          Title is required
+        </div>
+      </div>
+      <div class="mb-2">
+        <label for="regarding" class="form-label">Regarding</label>
+        <input type="text" class="form-control" id="regarding" formControlName="regarding" [ngClass]="{'is-invalid': formSuratMasuk.get('regarding')?.errors && formSuratMasuk.get('regarding')?.touched}">
+        <div class="invalid-feedback">
+          Regarding is required
+        </div>
+      </div>
+      <div class="mb-2">
+        <div class="row">
+          <div class="col">
+            <label for="to" class="form-label">To</label>
+            <input type="text" class="form-control" id="to" formControlName="to" [ngClass]="{'is-invalid': formSuratMasuk.get('to')?.errors && formSuratMasuk.get('to')?.touched}">
+            <div class="invalid-feedback">
+              To is required
+            </div>
+          </div>
+          <div class="col">
+            <label for="from" class="form-label">From</label>
+            <input type="text" class="form-control" id="from" formControlName="from" [ngClass]="{'is-invalid': formSuratMasuk.get('from')?.errors && formSuratMasuk.get('from')?.touched}">
+            <div class="invalid-feedback">
+              From is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-2">
+        <label for="message" class="form-label">Message</label>
+        <textarea class="form-control" id="message" cols="30" rows="5" formControlName="message" [ngClass]="{'is-invalid': formSuratMasuk.get('message')?.errors && formSuratMasuk.get('message')?.touched}"></textarea>
+        <div class="invalid-feedback">
+          Message is required
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="submit('I')">Submit</button>
+    </form>
   </div>
 </div>

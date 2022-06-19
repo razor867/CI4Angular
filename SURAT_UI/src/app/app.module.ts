@@ -13,6 +13,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ErrorInterceptor } from './_interceptors/error.interceptor';
 import { ToastrModule } from 'ngx-toastr';
 import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [			
@@ -31,6 +33,8 @@ import { MatTableModule } from '@angular/material/table';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatTableModule,
+    FormsModule,
+    ReactiveFormsModule,
     ToastrModule.forRoot({ 
       positionClass: 'toast-bottom-right',
       maxOpened: 2,
