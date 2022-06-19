@@ -49,7 +49,7 @@ class SuratMasuk extends ResourceController
         ];
 
         // return $this->respondCreated($data, 201);
-        return $this->respond($response);
+        return $this->respond($response, 200);
     }
 
     public function update($id = null)
@@ -83,7 +83,7 @@ class SuratMasuk extends ResourceController
                 'success' => 'Data Updated'
             ]
         ];
-        return $this->respond($response);
+        return $this->respond($response, 200);
     }
 
     public function delete($id = null)
@@ -100,7 +100,27 @@ class SuratMasuk extends ResourceController
                 ]
             ];
 
-            return $this->respondDeleted($response);
+            return $this->respondDeleted($response, 200);
+        } else {
+            return $this->failNotFound('No Data Found with id ' . $id);
+        }
+    }
+
+    public function del($id = null)
+    {
+        $model = new SuratMasukModel();
+        $data = $model->find($id);
+        if ($data) {
+            $model->delete($id);
+            $response = [
+                'status'    => 200,
+                'error'     => null,
+                'messages'  => [
+                    'success' => 'Data Deleted'
+                ]
+            ];
+
+            return $this->respondDeleted($response, 200);
         } else {
             return $this->failNotFound('No Data Found with id ' . $id);
         }

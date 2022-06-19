@@ -27,4 +27,16 @@ export class SuratMasukService {
         })
       )
   }
+
+  addSuratMasuk(data: Suratmasuk): Observable<any> {
+    return this.http.post(this.baseUrl + 'create', data);
+  }
+
+  editSuratMasuk(data: Suratmasuk): Observable<any> {
+    return this.http.post(this.baseUrl + 'update/' + data.id, data);
+  }
+
+  delSuratMasuk(data: Suratmasuk): Observable<any> {
+    return this.http.post(this.baseUrl + 'delete/' + data.id, data);
+  }
 }

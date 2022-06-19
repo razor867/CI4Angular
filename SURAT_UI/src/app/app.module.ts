@@ -12,8 +12,7 @@ import { SuratmasukComponent } from './suratmasuk/suratmasuk.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ErrorInterceptor } from './_interceptors/error.interceptor';
 import { ToastrModule } from 'ngx-toastr';
-import { MatTableModule } from '@angular/material/table';
-import { MatDialogModule } from '@angular/material/dialog';
+import {  MatTableModule } from '@angular/material/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({

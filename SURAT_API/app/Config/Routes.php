@@ -33,6 +33,7 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 // $routes->get('/', 'Home::index');
 $routes->get('suratmasuk/judul/(:segment)', 'SuratMasuk::judul');
+$routes->get('suratmasuk/del/(:segment)', 'SuratMasuk::del');
 $routes->resource('suratmasuk');
 
 
