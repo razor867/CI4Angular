@@ -33,10 +33,10 @@ export class SuratMasukService {
   }
 
   editSuratMasuk(data: Suratmasuk): Observable<any> {
-    return this.http.post(this.baseUrl + 'update/' + data.id, data);
+    return this.http.put(this.baseUrl + 'update/' + data.id, data);
   }
 
   delSuratMasuk(data: Suratmasuk): Observable<any> {
-    return this.http.post(this.baseUrl + 'delete/' + data.id, data);
+    return this.http.delete(this.baseUrl + 'delete/' + data.id);
   }
 }
