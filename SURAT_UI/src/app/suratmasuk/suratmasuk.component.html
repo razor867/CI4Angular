@@ -1,6 +1,7 @@
 <div *ngIf="pageInit" class="row my-3 mx-3">
   <div class="col-md-8">
     <h4>Surat Masuk</h4>
+    <button class="btn btn-sm btn-secondary" routerLink="/">Home</button>
     <button class="btn btn-sm btn-primary mt-3" (click)="add('I', null)">Add</button>
     <div class="table-responsive">
       <table mat-table [dataSource]="listSuratMasuk" class="mat-elevation-z8" style="width: 100%;">
